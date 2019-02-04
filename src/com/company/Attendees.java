@@ -33,6 +33,19 @@ public class Attendees {
         this.id = id;
     }
 
+    @Override
+    public String toString() {
+        return "Attendees{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", state='" + state + '\'' +
+                ", email='" + email + '\'' +
+                ", date='" + date + '\'' +
+                ", specialRequests='" + specialRequests + '\'' +
+                ", id=" + id +
+                '}';
+    }
+
     public String getName() {
         return name;
     }
