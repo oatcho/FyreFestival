@@ -20,7 +20,7 @@ public class AdminServices {
         }
     }
 
-    public void adminCredCheck() {
+    public void adminCredCheck(AttendeeListService aListServ) {
         Scanner ser = new Scanner(System.in);
         String usernameInput;
         String passwordInput;
@@ -28,18 +28,24 @@ public class AdminServices {
         usernameInput = ser.nextLine();
         System.out.println("Please enter your password:");
         passwordInput = ser.nextLine();
-        boolean bookFound = false;
+        boolean userFound = false;
         for (int i = 0; i < admins.size(); i++) {
             if (admins.get(i).getName().equalsIgnoreCase(usernameInput) && admins.get(i).getPassword().equals(passwordInput)) {
-                bookFound = true;
-                System.out.println("What do you want to do next? \n 1) Edit Book Info \n 2) Borrow (Delete) Book \n 3) Return to Main Menu");
+                userFound = true;
+                System.out.println("Billy welcomes to the Fyre Festival Admin Menu");
+                System.out.println("What do you want to do next? \n 1) View All Registrations \n 2) Guest Search and Registration Update \n 3) Return to Main Menu");
                 int searchMenuOption = ser.nextInt();
-                while (searchMenuOption != 3) {
-                            System.out.println("What part of the book would you like to edit?");
-                            System.out.println("\n1) Edit title \n 2) Edit author \n 3) Edit publisher \n 4) Edit number of pages \n 5) Exit");
-                            int inputEditOption = ser.nextInt();
-                            switch (inputEditOption) {
+                            switch (searchMenuOption) {
                                 case 1:
+                                    System.out.println("Would you like to see all registrants, or search by state?\n 1) See All Registrants \n 2) Search Registrants by State");
+                                    int numInput = ser.nextInt();
+                                    if(numInput==1) {
+                                    aListServ.printDetails();}
+                                    else if (numInput==2){
+                                    System.out.println("Search By State:");
+                                    ser.nextLine();
+                                    String state = ser.nextLine();
+                                    aListServ.searchByState(state);}
                                     break;
                                 case 2:
                                     break;
@@ -52,13 +58,12 @@ public class AdminServices {
                                 default:
                                     break;
                             }
-                    }
                 }
             }
 
 
-        if (!bookFound) {
-            System.out.println("Sorry, we don't have that book here.");
+        if (!userFound) {
+            System.out.println("Invalid Credentials, go see Billy.");
         }
     }
 }

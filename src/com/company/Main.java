@@ -8,13 +8,15 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
         AttendeeListService testList = new AttendeeListService();
-//        Attendees attendee = new Attendees("Christie", "123 Bakers Ln", "Michigan", "christie@gmail.com", "07-14-19", "vegan");
-//        Attendees attendee1 = new Attendees("Omar", "9 Mile RD", "Michigan", "oatcho@gmail.com", "07-13-19", "kosher");
-//
-//        testList.addAnAttendee(attendee);
-//        testList.addAnAttendee(attendee1);
-//
-//        testList.printDetails();
+        Attendees attendee = new Attendees("Christie", "123 Bakers Ln", "Michigan", "christie@gmail.com", "07-14-19", "vegan");
+        Attendees attendee1 = new Attendees("Omar", "9 Mile RD", "Michigan", "oatcho@gmail.com", "07-13-19", "kosher");
+        Attendees attendee2 = new Attendees("John", "123 idk lane", "Hawaii", "bob@gmail.com", "03-23-19", "none");
+
+        testList.addAnAttendee(attendee);
+        testList.addAnAttendee(attendee1);
+        testList.addAnAttendee(attendee2);
+
+        testList.printDetails();
 
         System.out.println("Welcome to the Fyre Festival! \n" +
                 "I promise, this is going to happen\n" +
@@ -46,8 +48,10 @@ public class Main {
             case 2:
                 //admin menu going here
                 AdminServices adSer = new AdminServices();
+                //adds Admins to our arrayList in Admin Service class.
                 adSer.addAdmins();
-                adSer.printAdmins();
+                //This method holds the menu for the Admins.
+                adSer.adminCredCheck(testList);
                 break;
             case 3:
                 System.out.println("Thanks for using the Fyre Festival Tendies App, have a nice day!");

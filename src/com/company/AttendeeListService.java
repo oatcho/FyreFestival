@@ -20,4 +20,12 @@ public class AttendeeListService extends Attendees {
             System.out.println(a);
         }
     }
+
+    public void searchByState(String state){
+        for (int i = 0; i < attendeeList.size(); i++){
+            if(attendeeList.get(i).getState().equalsIgnoreCase(state)){
+                System.out.println(attendeeList.get(i));
+            }
+        }
+    }
 }
