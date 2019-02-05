@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 
-public class AttendeeList extends Attendees {
+public class AttendeeListService extends Attendees {
 
     private ArrayList<Attendees> attendeeList = new ArrayList<>();
 

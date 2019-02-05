@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
-        AttendeeList testList = new AttendeeList();
+        AttendeeListService testList = new AttendeeListService();
 //        Attendees attendee = new Attendees("Christie", "123 Bakers Ln", "Michigan", "christie@gmail.com", "07-14-19", "vegan");
 //        Attendees attendee1 = new Attendees("Omar", "9 Mile RD", "Michigan", "oatcho@gmail.com", "07-13-19", "kosher");
 //
@@ -45,6 +45,9 @@ public class Main {
                 break;
             case 2:
                 //admin menu going here
+                AdminServices adSer = new AdminServices();
+                adSer.addAdmins();
+                adSer.printAdmins();
                 break;
             case 3:
                 System.out.println("Thanks for using the Fyre Festival Tendies App, have a nice day!");
